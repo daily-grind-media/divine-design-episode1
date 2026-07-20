@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divine Design — Podcast Authority Blueprint | Daily Grind Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600&family=Barlow:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;
+  --card:#111111;
+  --border:#1E1E1E;
+  --border-mid:#2A2A2A;
+  --copper:#BB725A;
+  --copper-light:#D4937D;
+  --copper-dark:#8A4F3B;
+  --white:#F5F3F0;
+  --muted:#777777;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-weight:300;
+  line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* Grain */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.04;mix-blend-mode:overlay;}
+
+/* Layout */
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,64px);}
+section{padding:clamp(56px,9vw,120px) 0;position:relative;}
+
+/* Divider */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--copper-dark) 18%,var(--copper) 50%,var(--copper-dark) 82%,transparent);opacity:0.55;width:100%;}
+.divider-block .wrap{padding-top:0;padding-bottom:0;}
+
+/* Motion */
+.reveal{opacity:0;transform:translateY(28px);
+  transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:none;}
+
+/* Lockup */
+.lockup{display:flex;align-items:center;gap:14px;}
+.lockup-mark{display:flex;align-items:flex-end;gap:3px;height:26px;}
+.lockup-mark span{width:3px;background:var(--copper);display:block;animation:grind 1.4s ease-in-out infinite;}
+.lockup-mark span:nth-child(1){height:10px;animation-delay:0s;}
+.lockup-mark span:nth-child(2){height:20px;animation-delay:.2s;}
+.lockup-mark span:nth-child(3){height:14px;animation-delay:.4s;}
+.lockup-mark span:nth-child(4){height:24px;animation-delay:.6s;}
+@keyframes grind{0%,100%{transform:scaleY(0.55);}50%{transform:scaleY(1);}}
+.lockup-name{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.82rem;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--white);}
+
+/* Hero */
+header.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;
+  padding:clamp(28px,5vw,52px) 0;overflow:hidden;}
+header.hero::after{content:"";position:absolute;bottom:-30%;right:-20%;width:70vw;height:70vw;
+  background:radial-gradient(circle,rgba(187,114,90,0.10),transparent 62%);pointer-events:none;}
+.hero-top{padding-top:clamp(8px,2vw,20px);}
+.hero-mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(40px,8vw,80px);padding-bottom:clamp(40px,8vw,80px);}
+.hero-client{font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:0.72rem;
+  letter-spacing:0.32em;text-transform:uppercase;color:var(--copper);margin-bottom:clamp(22px,3vw,34px);}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.4rem,12vw,9rem);line-height:0.9;
+  letter-spacing:0.01em;color:var(--white);text-transform:uppercase;}
+.hero-title .row2{display:block;color:var(--copper);}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+  font-size:clamp(1.25rem,2.8vw,1.9rem);color:var(--copper-light);max-width:42ch;line-height:1.4;
+  margin-top:clamp(26px,3.5vw,40px);}
+.hero-meta{display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,52px);margin-top:clamp(34px,4.5vw,56px);}
+.hero-meta span{font-family:'Barlow Condensed',sans-serif;font-weight:300;font-size:0.74rem;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.hero-meta strong{color:var(--copper-light);font-weight:600;}
+.hero-scroll{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;
+  letter-spacing:0.3em;font-size:0.64rem;color:var(--muted);display:flex;align-items:center;gap:12px;}
+.hero-scroll::after{content:"";width:44px;height:1px;background:var(--copper-dark);}
+
+/* Eyebrow + titles */
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.7rem;
+  letter-spacing:0.24em;text-transform:uppercase;color:var(--copper);display:flex;align-items:baseline;gap:14px;
+  margin-bottom:clamp(20px,3vw,30px);}
+.sec-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--copper-dark);}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,7vw,4.6rem);
+  color:var(--white);margin-bottom:clamp(24px,4vw,44px);text-transform:uppercase;
+  line-height:0.92;letter-spacing:0.02em;}
+.lead{font-family:'Barlow',sans-serif;font-weight:300;font-size:clamp(1rem,2vw,1.18rem);
+  color:#cfccc6;max-width:66ch;line-height:1.7;}
+.lead + .lead{margin-top:18px;}
+.lead .serif{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--copper-light);font-size:1.1em;}
+.prose p{font-family:'Barlow',sans-serif;font-weight:300;font-size:clamp(1rem,2vw,1.12rem);
+  color:#c5c2bc;max-width:70ch;line-height:1.8;margin-bottom:20px;}
+.prose p strong{color:var(--copper-light);font-weight:500;}
+.mono-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.66rem;
+  letter-spacing:0.24em;text-transform:uppercase;color:var(--copper);}
+
+/* TOC */
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;
+  background:var(--border);border:1px solid var(--border);margin-top:clamp(24px,3vw,32px);}
+.toc a{background:var(--card);padding:18px 24px;display:flex;gap:16px;align-items:baseline;
+  text-decoration:none;transition:background .4s ease;}
+.toc a:hover{background:#151110;}
+.toc a .n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;
+  color:var(--copper-dark);min-width:30px;}
+.toc a .t{font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:0.8rem;
+  letter-spacing:0.1em;text-transform:uppercase;color:#cfccc6;transition:color .3s ease;}
+.toc a:hover .t{color:var(--white);}
+
+/* Cards */
+.card-grid{display:grid;gap:clamp(14px,2vw,22px);
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:clamp(28px,4vw,44px);}
+.card-grid.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.card{background:var(--card);border:1px solid var(--border);padding:clamp(26px,3.4vw,38px);
+  position:relative;overflow:hidden;transition:border-color .5s ease,transform .5s ease;}
+.card::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--copper),var(--copper-dark));opacity:0;transition:opacity .5s ease;}
+.card:hover{border-color:var(--copper-dark);transform:translateY(-3px);}
+.card:hover::before{opacity:1;}
+.card-index{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;
+  color:var(--copper-dark);display:block;margin-bottom:14px;line-height:0.8;}
+.card-title{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.78rem;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--white);margin-bottom:14px;}
+.card-body{font-family:'Barlow',sans-serif;font-weight:300;font-size:0.92rem;color:#c5c2bc;line-height:1.7;}
+.card-body + .card-body{margin-top:12px;}
+.card-body .tag{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.6rem;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--copper);display:block;margin-bottom:6px;}
+
+/* Statement */
+.statement{border-left:2px solid var(--copper);
+  padding:clamp(28px,4vw,52px) clamp(24px,4vw,56px);
+  background:linear-gradient(100deg,rgba(187,114,90,0.06),transparent 60%);
+  margin:clamp(28px,4vw,40px) 0;}
+.statement p{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(1.4rem,3.6vw,2.3rem);line-height:1.32;color:var(--white);margin:0;}
+.statement .accent{color:var(--copper-light);}
+
+/* Snapshot cards */
+.snapshot{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:clamp(28px,4vw,44px);}
+.snap{background:var(--card);padding:clamp(24px,3vw,32px);transition:background .4s ease;}
+.snap:hover{background:#151110;}
+.snap .k{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.64rem;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);margin-bottom:14px;}
+.snap .v{font-family:'Barlow',sans-serif;font-weight:300;font-size:0.98rem;color:#d6d3cd;line-height:1.6;}
+
+/* Dot list */
+.dot-list{list-style:none;margin-top:18px;}
+.dot-list li{font-size:1rem;color:#bdbab4;padding:12px 0 12px 22px;position:relative;
+  border-top:1px solid var(--border);line-height:1.6;font-family:'Barlow',sans-serif;font-weight:300;}
+.dot-list li:first-child{border-top:none;}
+.dot-list li::before{content:"";position:absolute;left:0;top:21px;width:8px;height:1px;background:var(--copper);}
+.dot-list li strong{color:var(--copper-light);font-weight:500;}
+
+/* Num list */
+.num-list{list-style:none;counter-reset:n;margin-top:18px;}
+.num-list li{position:relative;padding:16px 0 16px 48px;font-size:1rem;line-height:1.6;
+  color:#bdbab4;border-top:1px solid var(--border);counter-increment:n;font-family:'Barlow',sans-serif;font-weight:300;}
+.num-list li:first-child{border-top:none;}
+.num-list li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:15px;
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--copper-dark);letter-spacing:0.04em;}
+.num-list li b{font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:0.04em;
+  color:var(--white);text-transform:uppercase;font-size:0.94em;}
+
+/* Narrative arc */
+.arc{display:grid;gap:clamp(14px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  margin-top:clamp(28px,4vw,44px);}
+.arc-stage{background:var(--card);border:1px solid var(--border);padding:clamp(26px,3vw,36px);position:relative;
+  transition:border-color .5s ease;}
+.arc-stage:hover{border-color:var(--copper-dark);}
+.arc-stage .phase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;
+  color:var(--copper-light);margin-bottom:8px;}
+.arc-stage .st-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.66rem;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+.arc-stage .st-body{font-family:'Barlow',sans-serif;font-weight:300;font-size:0.94rem;color:#c5c2bc;line-height:1.7;}
+.arc-stage .feel{margin-top:16px;padding-top:16px;border-top:1px solid var(--border);
+  font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:0.72rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);}
+.arc-stage .feel b{color:var(--copper-light);font-weight:600;}
+
+/* Accordion */
+.accordion{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);
+  margin-top:clamp(24px,3vw,36px);}
+.acc-item{background:var(--card);transition:background .45s ease;position:relative;}
+.acc-item::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--copper),var(--copper-dark));
+  opacity:0;transition:opacity .45s ease;z-index:2;}
+.acc-item.open{background:#151110;}
+.acc-item.open::before{opacity:1;}
+.acc-head{width:100%;background:none;border:0;cursor:pointer;text-align:left;
+  display:flex;align-items:center;gap:20px;
+  padding:clamp(22px,3vw,30px) clamp(24px,3.4vw,36px);color:inherit;font-family:inherit;
+  transition:background .3s ease;}
+.acc-head:hover{background:rgba(187,114,90,0.03);}
+.acc-head:focus-visible{outline:1px solid var(--copper);outline-offset:-2px;}
+.acc-cat{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.7rem;
+  color:var(--copper-dark);flex-shrink:0;min-width:36px;line-height:0.9;transition:color .4s ease;}
+.acc-item.open .acc-cat{color:var(--copper-light);}
+.acc-title{font-family:'Barlow Condensed',sans-serif;font-weight:600;
+  font-size:clamp(0.9rem,1.6vw,1.05rem);letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--white);flex:1;transition:color .4s ease;}
+.acc-item.open .acc-title{color:var(--copper-light);}
+.acc-count{font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:0.66rem;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);flex-shrink:0;}
+.acc-icon{flex-shrink:0;width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--copper-dark);position:relative;margin-left:6px;
+  transition:border-color .4s ease,background .4s ease;
+  background:radial-gradient(circle at 50% 30%,rgba(187,114,90,0.10),rgba(8,8,8,0.2));}
+.acc-item.open .acc-icon{border-color:var(--copper);}
+.acc-icon::before,.acc-icon::after{content:"";position:absolute;background:var(--copper);
+  transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .4s ease;}
+.acc-icon::before{top:50%;left:50%;width:12px;height:1.5px;transform:translate(-50%,-50%);}
+.acc-icon::after{top:50%;left:50%;width:1.5px;height:12px;transform:translate(-50%,-50%);}
+.acc-item.open .acc-icon::after{transform:translate(-50%,-50%) scaleY(0);opacity:0;}
+.acc-panel{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.2,.7,.2,1);}
+.acc-item.open .acc-panel{max-height:6000px;}
+.acc-inner{padding:4px clamp(24px,3.4vw,36px) clamp(24px,3.4vw,34px);}
+.acc-block{border-top:1px solid var(--border);padding:20px 0;}
+.acc-block:first-child{border-top:0;}
+.acc-block .b-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.64rem;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--copper);margin-bottom:10px;}
+.acc-block .b-body{font-family:'Barlow',sans-serif;font-weight:300;font-size:0.96rem;color:#c5c2bc;line-height:1.75;}
+.acc-block .b-body .q{font-family:'Cormorant Garamond',serif;font-style:italic;
+  color:var(--copper-light);font-size:1.1rem;}
+.acc-block ul{list-style:none;margin-top:6px;}
+.acc-block ul li{position:relative;padding:6px 0 6px 20px;font-size:0.94rem;color:#bdbab4;line-height:1.6;}
+.acc-block ul li::before{content:"";position:absolute;left:0;top:15px;width:8px;height:1px;background:var(--copper-dark);}
+
+/* Reel blocks */
+.reel{border-top:1px solid var(--border);padding:clamp(24px,3vw,30px) 0;}
+.reel:first-child{border-top:0;}
+.reel-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);
+  letter-spacing:0.03em;color:var(--white);margin-bottom:10px;text-transform:uppercase;}
+.reel-row{font-size:0.9rem;color:#bdbab4;line-height:1.7;margin-top:7px;font-family:'Barlow',sans-serif;font-weight:300;}
+.reel-row b{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.64rem;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--copper);margin-right:10px;}
+.reel-row .hookline{font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.15rem;color:var(--copper-light);}
+
+/* Expansion map grid */
+.map-grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:clamp(28px,4vw,44px);}
+.map-cell{background:var(--card);padding:clamp(22px,2.6vw,30px);transition:background .4s ease;}
+.map-cell:hover{background:#151110;}
+.map-cell .m-title{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.74rem;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--copper-light);margin-bottom:10px;}
+.map-cell .m-body{font-family:'Barlow',sans-serif;font-weight:300;font-size:0.9rem;color:#c5c2bc;line-height:1.65;}
+
+/* Flywheel */
+.flywheel{margin-top:clamp(32px,5vw,56px);display:flex;flex-direction:column;align-items:center;gap:0;}
+.fw-ring{position:relative;width:min(560px,86vw);aspect-ratio:1;margin:0 auto;}
+.fw-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38%;height:38%;
+  border-radius:50%;border:1px solid var(--copper-dark);
+  background:radial-gradient(circle,rgba(187,114,90,0.12),rgba(8,8,8,0.4));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;}
+.fw-center .fw-c-label{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.6rem;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--copper);margin-bottom:6px;}
+.fw-center .fw-c-word{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.3rem,4vw,2rem);
+  color:var(--white);line-height:0.95;letter-spacing:0.02em;}
+.fw-node{position:absolute;width:clamp(78px,17vw,116px);height:clamp(78px,17vw,116px);border-radius:50%;
+  background:var(--card);border:1px solid var(--border);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:8px;
+  transform:translate(-50%,-50%);transition:border-color .5s ease,background .5s ease;}
+.fw-node:hover{border-color:var(--copper);background:#151110;}
+.fw-node .fw-n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--copper-dark);}
+.fw-node .fw-t{font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:0.56rem;
+  letter-spacing:0.08em;text-transform:uppercase;color:#cfccc6;line-height:1.25;margin-top:4px;}
+/* 8 nodes around circle */
+.fw-node.n1{top:2%;left:50%;}
+.fw-node.n2{top:16%;left:84%;}
+.fw-node.n3{top:50%;left:98%;}
+.fw-node.n4{top:84%;left:84%;}
+.fw-node.n5{top:98%;left:50%;}
+.fw-node.n6{top:84%;left:16%;}
+.fw-node.n7{top:50%;left:2%;}
+.fw-node.n8{top:16%;left:16%;}
+.fw-note{max-width:60ch;margin-top:clamp(36px,5vw,56px);text-align:center;
+  font-family:'Barlow',sans-serif;font-weight:300;font-size:clamp(1rem,2vw,1.14rem);color:#c5c2bc;line-height:1.8;}
+.fw-note .accent{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--copper-light);font-size:1.12em;}
+/* mobile flywheel fallback -> vertical list */
+.fw-list{display:none;}
+@media(max-width:600px){
+  .fw-ring{display:none;}
+  .fw-list{display:grid;gap:1px;background:var(--border);border:1px solid var(--border);width:100%;margin-top:8px;}
+  .fw-li{background:var(--card);padding:20px 22px;display:flex;gap:16px;align-items:baseline;}
+  .fw-li .fw-li-n{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;color:var(--copper-dark);min-width:28px;}
+  .fw-li .fw-li-t{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:#cfccc6;}
+}
+
+/* Roadmap */
+.roadmap{margin-top:clamp(28px,4vw,44px);display:grid;gap:1px;background:var(--border);border:1px solid var(--border);}
+.rm-ep{background:var(--card);padding:clamp(26px,3vw,36px);position:relative;transition:background .4s ease;
+  display:grid;grid-template-columns:88px 1fr;gap:clamp(18px,3vw,34px);align-items:start;}
+.rm-ep:hover{background:#151110;}
+.rm-ep .rm-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,6vw,3.6rem);
+  color:var(--copper-dark);line-height:0.8;}
+.rm-ep .rm-title{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:clamp(1rem,2.2vw,1.2rem);
+  letter-spacing:0.06em;text-transform:uppercase;color:var(--white);margin-bottom:14px;}
+.rm-meta{display:grid;gap:10px;}
+.rm-meta .rm-row{font-family:'Barlow',sans-serif;font-weight:300;font-size:0.92rem;color:#c5c2bc;line-height:1.6;}
+.rm-meta .rm-row b{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.62rem;
+  letter-spacing:0.16em;text-transform:uppercase;color:var(--copper);margin-right:10px;display:inline-block;min-width:118px;}
+@media(max-width:560px){.rm-ep{grid-template-columns:1fr;gap:12px;}
+  .rm-meta .rm-row b{display:block;margin-bottom:2px;}}
+
+/* Pills */
+.pillars{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+.pill{font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:0.68rem;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--copper-light);
+  border:1px solid var(--copper-dark);background:transparent;display:inline-block;
+  padding:6px 14px;transition:background .3s ease,color .3s ease;}
+.pill:hover{background:var(--copper);color:var(--black);}
+
+/* Next steps */
+.steps{display:grid;gap:clamp(14px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  margin-top:clamp(28px,4vw,44px);}
+.step{background:var(--card);border:1px solid var(--border);padding:clamp(28px,3.4vw,40px);
+  position:relative;transition:border-color .5s ease,transform .5s ease;overflow:hidden;}
+.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--copper),var(--copper-dark));opacity:0;transition:opacity .5s ease;}
+.step:hover{border-color:var(--copper-dark);transform:translateY(-3px);}
+.step:hover::before{opacity:1;}
+.step .s-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.2rem;
+  color:var(--copper-dark);display:block;margin-bottom:16px;line-height:0.8;}
+.step .s-title{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:0.86rem;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--white);margin-bottom:12px;}
+.step .s-body{font-family:'Barlow',sans-serif;font-weight:300;font-size:0.94rem;color:#c5c2bc;line-height:1.7;}
+
+/* Deliverables */
+.deliv-note{font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:0.72rem;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:36px;text-align:center;}
+
+/* Footer */
+footer{padding:clamp(60px,9vw,110px) 0 clamp(48px,6vw,72px);text-align:center;position:relative;}
+.footer-lockup{display:flex;flex-direction:column;align-items:center;gap:18px;}
+.footer-lockup .lockup{justify-content:center;}
+.footer-mark{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5vw,2.8rem);
+  color:var(--white);letter-spacing:0.06em;margin-top:24px;}
+.footer-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.05rem,2.4vw,1.4rem);
+  color:var(--copper-light);margin-top:12px;}
+.footer-meta{font-family:'Barlow Condensed',sans-serif;font-weight:400;font-size:0.68rem;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-top:28px;}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important;transition:none!important;}
+  .lockup-mark span{animation:none!important;}
+  html{scroll-behavior:auto;}
+}
+
+/* Print */
+@media print{
+  body{background:#fff;color:#000;}
+  .grain,header.hero::after{display:none;}
+  .reveal{opacity:1!important;transform:none!important;}
+  .card,.acc-item,.reel,.statement,.toc a,.snap,.arc-stage,.map-cell,.rm-ep,.step,.fw-node{break-inside:avoid;}
+  .acc-panel{max-height:none!important;overflow:visible!important;}
+  section{padding:24px 0;}
+  header.hero{min-height:auto;}
+  .hero-title,.section-title,.card-title,.reel-title,.footer-mark{color:#111;}
+  p,.lead,.card-body,.prose p{color:#333;}
+  .divider{opacity:1;}
+  .lockup-mark span{animation:none!important;}
+}
+</style>
+</head>
+<body>
+
+<svg class="grain"><filter id="grainf"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#grainf)"/></svg>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-top">
+    <div class="lockup"><div class="lockup-mark"><span></span><span></span><span></span><span></span></div>
+      <div class="lockup-name">Daily Grind Media</div></div>
+  </div>
+  <div class="wrap hero-mid">
+    <div class="hero-client reveal">Podcast Authority Blueprint &middot; Pre-Production Deliverable</div>
+    <h1 class="hero-title reveal">Divine<br>Design<span class="row2">Authority Blueprint</span></h1>
+    <p class="hero-sub reveal">Turning one recording session into a self-reinforcing authority engine for the coach whose women have done the inner work — and are ready for their bodies to catch up.</p>
+    <div class="hero-meta reveal">
+      <span><strong>Client</strong> Fate Villas &middot; Divine Design</span>
+      <span><strong>Prepared by</strong> Daily Grind Media</span>
+      <span><strong>July</strong> 2026</span>
+    </div>
+  </div>
+  <div class="wrap"><div class="hero-scroll reveal">Scroll to begin</div></div>
+</header>
+
+<!-- TOC -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="toc">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">—</span> Contents</div>
+    <h2 class="section-title reveal">Inside This<br>Blueprint</h2>
+    <div class="toc reveal">
+      <a href="#s1"><span class="n">01</span><span class="t">Executive Summary</span></a>
+      <a href="#s2"><span class="n">02</span><span class="t">Authority Positioning</span></a>
+      <a href="#s3"><span class="n">03</span><span class="t">Audience Breakdown</span></a>
+      <a href="#s4"><span class="n">04</span><span class="t">Podcast Strategy</span></a>
+      <a href="#s5"><span class="n">05</span><span class="t">Episode Narrative Arc</span></a>
+      <a href="#s6"><span class="n">06</span><span class="t">Episode Blueprint</span></a>
+      <a href="#s7"><span class="n">07</span><span class="t">Conversation Framework</span></a>
+      <a href="#s8"><span class="n">08</span><span class="t">Clip Opportunity Targets</span></a>
+      <a href="#s9"><span class="n">09</span><span class="t">Content Expansion Map</span></a>
+      <a href="#s10"><span class="n">10</span><span class="t">The Authority Flywheel</span></a>
+      <a href="#s11"><span class="n">11</span><span class="t">Authority Growth Roadmap</span></a>
+      <a href="#s12"><span class="n">12</span><span class="t">Production Day Preparation</span></a>
+      <a href="#s13"><span class="n">13</span><span class="t">Included Deliverables</span></a>
+      <a href="#s14"><span class="n">14</span><span class="t">Next Steps</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 EXECUTIVE SUMMARY ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s1">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">01</span> Executive Summary</div>
+    <h2 class="section-title reveal">The Strategy<br>At A Glance</h2>
+    <div class="prose reveal">
+      <p>This blueprint exists to do one thing: turn Fate's first podcast episode into the foundation of a category she can own. The market is crowded with coaches who speak to <strong>faith</strong>, and coaches who speak to the <strong>nervous system</strong> — but almost no one credibly coordinates fitness, nutrition, nervous system regulation, and identity in Christ into a single, sequenced process. That intersection is open ground, and it is precisely where Fate stands.</p>
+      <p>Her ideal audience is not the woman who hasn't started. It is the woman who has <strong>already done the work</strong> — the therapy, the mindset, every fitness program — and still feels dysregulated, stuck in survival mode, and unable to make change stick. She is high-achieving, spiritually serious, and quietly exhausted. She doesn't need another plan. She needs someone to tell her the truth: her body was never the problem; the fragments were never designed to add up.</p>
+      <p>Episode One is her origin-and-position story. Leading with lived experience earns trust before Fate asks the audience to trust her method — and it lets her name the <span class="mono-label">fragmentation problem</span> and stake her claim from the very first minute. Every subsequent episode compounds from this one.</p>
+      <p>This is not a podcast outline. It is a production strategy for building a durable business asset — where one recording session generates a month of content, and every piece of content feeds the next stage of authority.</p>
+    </div>
+
+    <div class="mono-label reveal" style="margin-top:clamp(40px,6vw,64px);margin-bottom:8px;">Strategic Snapshot</div>
+    <div class="snapshot reveal">
+      <div class="snap"><div class="k">Primary Objective</div><div class="v">Establish Fate as the credible integrator of fitness, nervous system, and faith — the first branded voice at that intersection.</div></div>
+      <div class="snap"><div class="k">Desired Outcome</div><div class="v">A trust-rich audience pre-sold on the worldview, primed for the founding Divine Design cohort.</div></div>
+      <div class="snap"><div class="k">Target Audience</div><div class="v">High-achieving, faith-driven women in a growth season who've "done all the work" but whose bodies haven't caught up.</div></div>
+      <div class="snap"><div class="k">Core Message</div><div class="v">You've done the inner work — now let's help your body and nervous system catch up.</div></div>
+      <div class="snap"><div class="k">Success Metric</div><div class="v">Audience self-recognition and opt-ins — quiz completions and waitlist signups — not vanity plays.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 AUTHORITY POSITIONING ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s2">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">02</span> Authority Positioning</div>
+    <h2 class="section-title reveal">The Space<br>She Owns</h2>
+    <p class="lead reveal">How Fate should be perceived: not a trainer, not a nutritionist, not a mindset coach — <span class="serif">the one who coordinates what everyone else treats separately.</span></p>
+
+    <div class="statement reveal"><p>Fate Villas helps faith-driven women in growth seasons transform from the inside out — coordinating fitness, nervous system, and faith into one holistic process so change is finally <span class="accent">felt, lasting, and lived.</span></p></div>
+
+    <div class="card-grid grid-2 reveal">
+      <div class="card"><span class="card-index">i</span>
+        <div class="card-title">Core Message</div>
+        <div class="card-body">You've done the inner work — now let's help your body and nervous system catch up, so your transformation is finally felt, physical, and lasting.</div></div>
+      <div class="card"><span class="card-index">ii</span>
+        <div class="card-title">Unique Perspective</div>
+        <div class="card-body">Inner regulation must come before protocols. Most programs start with plans and discipline; Fate starts with the nervous system and the beliefs underneath the pattern — then the body finally cooperates.</div></div>
+      <div class="card"><span class="card-index">iii</span>
+        <div class="card-title">Authority Advantage</div>
+        <div class="card-body">Trained-and-lived expertise on both sides: exercise science and nutrition, plus personal recovery from an eating disorder and bodybuilding extremes. Recovery-safe authority most fitness coaches structurally lack.</div></div>
+      <div class="card"><span class="card-index">iv</span>
+        <div class="card-title">Differentiation</div>
+        <div class="card-body">She holds all four domains at once — fitness, nutrition, nervous system, faith — where competitors own only peace and calm. The physical-transformation bridge is hers alone.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 AUDIENCE BREAKDOWN ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s3">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">03</span> Audience Breakdown</div>
+    <h2 class="section-title reveal">The Woman<br>We Speak To</h2>
+    <p class="lead reveal">Written in her own language — because the fastest way to earn her trust is to describe her situation better than she can describe it herself.</p>
+
+    <div class="card-grid reveal">
+      <div class="card"><span class="card-index">01</span>
+        <div class="card-title">Who They Are</div>
+        <div class="card-body">High-achieving, faith-driven women in a growth season — career builders, entrepreneurs, driven mothers. Over-functioning, spiritually serious, physically driven, and quietly running on empty.</div></div>
+      <div class="card"><span class="card-index">02</span>
+        <div class="card-title">What They Want</div>
+        <div class="card-body">To feel at home in their bodies again. Lasting change that doesn't rebound. To finally <em>hold</em> the truth about who they are, not just know it in their head.</div></div>
+      <div class="card"><span class="card-index">03</span>
+        <div class="card-title">What They Fear</div>
+        <div class="card-body">"I'll keep ending up in the same cycle." That the striving never quiets. That they're falling short of who they're supposed to be — and that something is wrong with them.</div></div>
+      <div class="card"><span class="card-index">04</span>
+        <div class="card-title">What They Believe</div>
+        <div class="card-body">Mind, body, and spirit are connected. They were made for a purpose and meant to steward their bodies well. Real change takes the deeper work — not a quick fix.</div></div>
+      <div class="card"><span class="card-index">05</span>
+        <div class="card-title">What They Need To Hear</div>
+        <div class="card-body">"You didn't fail the program. The program skipped a step. Your body was never the problem — you were handed fragments that were never designed to add up."</div></div>
+      <div class="card"><span class="card-index">06</span>
+        <div class="card-title">Why This Podcast Matters</div>
+        <div class="card-body">Because no one else is naming her exact experience: done the work, still stuck. This show is the first place she hears her whole self — faith, body, nervous system — spoken to at once.</div></div>
+    </div>
+
+    <div class="statement reveal"><p>"I've done all the mindset work, the therapy, every fitness program — <span class="accent">and my body still won't cooperate.</span>"</p></div>
+    <p class="lead reveal"><strong style="color:var(--copper-light);font-weight:500;">Secondary audience:</strong> Christian women earlier in the journey — navigating anxiety and burnout but not yet fitness-focused — plus women who arrive through the body angle and are still warming to the nervous-system and faith layers. They're learning the language before they're ready to buy.</p>
+  </div>
+</section>
+
+<!-- ============ 04 PODCAST STRATEGY ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s4">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">04</span> Podcast Strategy</div>
+    <h2 class="section-title reveal">The Long<br>Game</h2>
+    <p class="lead reveal">The strategic purpose is not reach for its own sake. It's to <span class="serif">name, teach, and repeatedly demonstrate the Divine Design framework</span> until Fate owns the category in the audience's mind — and in search.</p>
+
+    <div class="pillars reveal">
+      <span class="pill">Bodies That Haven't Caught Up</span>
+      <span class="pill">Nervous System, Faith &amp; The Body</span>
+      <span class="pill">Is This Okay For A Christian?</span>
+      <span class="pill">Cycles You Can't Outpray</span>
+      <span class="pill">The Over-Functioning Achiever</span>
+      <span class="pill">Identity Before Outcomes</span>
+      <span class="pill">The Divine Design Framework</span>
+      <span class="pill">Proof: Transformation Stories</span>
+    </div>
+
+    <div class="card-grid grid-2 reveal" style="margin-top:clamp(36px,5vw,52px);">
+      <div class="card"><span class="card-index">i</span>
+        <div class="card-title">Strategic Purpose</div>
+        <div class="card-body">Convert Fate's method into named, repeatable IP — and bridge the fragmented search ecosystem (faith, fitness, nervous system searched separately) into one integrated narrative she owns.</div></div>
+      <div class="card"><span class="card-index">ii</span>
+        <div class="card-title">Long-Term Vision</div>
+        <div class="card-body">Divine Design recognized as <em>a methodology</em>, not just a cohort name — the way the market recognizes named frameworks as the mark of a true authority.</div></div>
+      <div class="card"><span class="card-index">iii</span>
+        <div class="card-title">Authority Objectives</div>
+        <div class="card-body">Own the intersection no competitor holds; surface granular case studies tying identity in Christ to embodied outcomes; make the somatics-to-fitness bridge her signature.</div></div>
+      <div class="card"><span class="card-index">iv</span>
+        <div class="card-title">Why This Starting Point</div>
+        <div class="card-body">Episode One's origin story installs the trust and worldview every other episode compounds from. You cannot teach the framework until the audience believes the teacher.</div></div>
+    </div>
+
+    <div class="mono-label reveal" style="margin-top:clamp(40px,6vw,60px);">Authority Objectives — The Fastest Path</div>
+    <ul class="dot-list reveal">
+      <li><strong>Name the framework.</strong> Turn Divine Design from a cohort into a recognizable, repeatable method.</li>
+      <li><strong>Bridge the search gap.</strong> Publish content connecting "Christian nervous system," "somatic therapy for Christians," and "Christian health coaching" into one owned narrative.</li>
+      <li><strong>Prove it granularly.</strong> Detailed transformation case studies — the confirmed content gap no competitor is filling.</li>
+      <li><strong>Build recovery-safe credibility.</strong> Lived-and-trained authority that separates her from every physique-first coach.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 05 NARRATIVE ARC ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s5">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">05</span> Episode Narrative Arc</div>
+    <h2 class="section-title reveal">The Emotional<br>Journey</h2>
+    <p class="lead reveal">Every episode is an arc, not a lecture. This is the emotional path Episode One walks the listener through — and what she should feel at each turn.</p>
+
+    <div class="arc reveal">
+      <div class="arc-stage">
+        <div class="phase">The Beginning</div>
+        <div class="st-label">Current Frustration</div>
+        <div class="st-body">She's exhausted and quietly blaming herself. "I've done the therapy, the mindset work, every fitness program — and it still isn't sticking. I love Jesus, I'm doing all the right things, and I'm still burnt out. Something must be wrong with me."</div>
+        <div class="feel"><b>Feels:</b> Seen. Tired. Skeptical but hopeful.</div>
+      </div>
+      <div class="arc-stage">
+        <div class="phase">The Middle</div>
+        <div class="st-label">The Turning Point</div>
+        <div class="st-body">The realization lands: the fragments were never coordinated. Faith, body, and nervous system were handed to her by separate people, and no amount of willpower forces a dysregulated body to change. The problem was never her effort — it was the order and the integration.</div>
+        <div class="feel"><b>Feels:</b> Relief. Reframe. "It wasn't me."</div>
+      </div>
+      <div class="arc-stage">
+        <div class="phase">The End</div>
+        <div class="st-label">Hope &amp; Action</div>
+        <div class="st-body">Hope grounded in relief. "It's not that I failed — nobody gave me the whole picture or the right sequence. My body <em>can</em> catch up. There's a way to do this that works with me instead of against me." She leaves curious, seen, and wanting the next piece.</div>
+        <div class="feel"><b>Feels:</b> Confident. Curious. Ready for the next step.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 EPISODE BLUEPRINT ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s6">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">06</span> Episode Blueprint</div>
+    <h2 class="section-title reveal">Episode One<br>The Foundation</h2>
+    <p class="lead reveal">Three title directions — audience-first, compelling, and search-aware — followed by exactly what this episode must accomplish.</p>
+
+    <div class="card-grid reveal">
+      <div class="card"><span class="card-index">01</span>
+        <div class="card-title">Title Option A</div>
+        <div class="card-body">"I Didn't Come This Far To Only Come This Far: The Coach For Women Whose Bodies Haven't Caught Up With Their Faith"</div></div>
+      <div class="card"><span class="card-index">02</span>
+        <div class="card-title">Title Option B</div>
+        <div class="card-body">"You've Done The Work — So Why Does Your Body Still Feel Stuck?"</div></div>
+      <div class="card"><span class="card-index">03</span>
+        <div class="card-title">Title Option C</div>
+        <div class="card-body">"Done White-Knuckling: Why Faith, Fitness &amp; Your Nervous System Have To Move Together"</div></div>
+    </div>
+
+    <div class="card-grid grid-2 reveal" style="margin-top:clamp(20px,3vw,28px);">
+      <div class="card"><span class="card-index">§</span>
+        <div class="card-title">Episode Objective</div>
+        <div class="card-body">Establish Fate as the credible integrator — the one person holding fitness, nutrition, nervous system, and faith together. Shift the belief from "I keep failing because I'm not disciplined enough" to "I was given fragments that never added up — my body was never the problem." Drive a reframe plus a first step, not a hard sell.</div></div>
+      <div class="card"><span class="card-index">§</span>
+        <div class="card-title">Core Message</div>
+        <div class="card-body">You've done the inner work — your body and nervous system just haven't caught up yet. And that's not a discipline problem. It's a sequencing problem.</div></div>
+    </div>
+
+    <div class="mono-label reveal" style="margin-top:clamp(40px,6vw,60px);">Strategic Talking Points</div>
+    <ul class="dot-list reveal">
+      <li><strong>The fragmentation problem</strong> — a trainer, a therapist, a Bible study, and still stuck.</li>
+      <li><strong>Partnering with your body vs. fighting it</strong> — introduce the language she owns.</li>
+      <li><strong>Inner work before protocols</strong> — why the order everyone gets wrong is the whole game.</li>
+      <li><strong>The vehicle, not the destination</strong> — fitness as identity and character formation.</li>
+      <li><strong>Knowing vs. holding the truth</strong> — the gap between belief and felt identity.</li>
+    </ul>
+
+    <div class="mono-label reveal" style="margin-top:clamp(40px,6vw,60px);">Why This Episode Matters</div>
+    <div class="card-grid grid-2 reveal">
+      <div class="card"><span class="card-index">i</span>
+        <div class="card-title">Ideal First Episode</div>
+        <div class="card-body">It stakes her category claim in the first minute and gives every future episode a foundation to build from — problem, then method, then proof.</div></div>
+      <div class="card"><span class="card-index">ii</span>
+        <div class="card-title">Why It Creates Trust</div>
+        <div class="card-body">Lived experience earns belief before she asks the audience to trust her method. Story first, teaching second — that's the order this audience buys in.</div></div>
+      <div class="card"><span class="card-index">iii</span>
+        <div class="card-title">Why It Establishes Authority</div>
+        <div class="card-body">It's the only place the audience hears all four domains coordinated by one credible voice — the integration itself is the proof of expertise.</div></div>
+      <div class="card"><span class="card-index">iv</span>
+        <div class="card-title">How Future Episodes Build</div>
+        <div class="card-body">Nervous system, somatics myth-busting, and case-study episodes all assume the worldview this episode installs. Episode One is the keystone.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 CONVERSATION FRAMEWORK ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s7">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">07</span> Conversation Framework</div>
+    <h2 class="section-title reveal">The DGM<br>Story Framework</h2>
+    <p class="lead reveal">Nine segments engineered to prioritize <span class="serif">storytelling over information.</span> Open each to see the primary question, deeper probes, the story to chase, the clip to flag, and producer notes. Tap to expand.</p>
+
+    <div class="accordion reveal">
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-cat">i</span><span class="acc-title">The Hook — Who You Help</span><span class="acc-icon"></span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner">
+          <div class="acc-block"><div class="b-label">Purpose</div><div class="b-body">Open by naming the exact woman listening, so she thinks "that's me" before Fate says anything about herself.</div></div>
+          <div class="acc-block"><div class="b-label">Primary Question</div><div class="b-body"><span class="q">"Before we get into your story — paint me a picture of the woman you help. Who is she, and what's she carrying when she comes to you?"</span></div></div>
+          <div class="acc-block"><div class="b-label">Follow-Up Questions</div><div class="b-body"><ul><li>What has she usually already tried before she finds you?</li><li>What's she telling herself about why it hasn't worked?</li></ul></div></div>
+          <div class="acc-block"><div class="b-label">Story Opportunities</div><div class="b-body">A composite or real client who'd "done everything" and still felt stuck.</div></div>
+          <div class="acc-block"><div class="b-label">Clip Opportunities</div><div class="b-body">Any line that mirrors audience self-talk verbatim — "done all the mindset work but my body still feels dysregulated."</div></div>
+          <div class="acc-block"><div class="b-label">Producer Notes</div><div class="b-body">Flag timestamps live whenever her phrasing matches audience language — these become the highest-performing reels.</div></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-cat">ii</span><span class="acc-title">The Origin Story</span><span class="acc-icon"></span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner">
+          <div class="acc-block"><div class="b-label">Purpose</div><div class="b-body">Establish authority through lived experience — the passion-and-purpose pivot that changed her life.</div></div>
+          <div class="acc-block"><div class="b-label">Primary Question</div><div class="b-body"><span class="q">"Take me back — how did fitness first come into your life? I know it started in a pretty dark season."</span></div></div>
+          <div class="acc-block"><div class="b-label">Follow-Up Questions</div><div class="b-body"><ul><li>What was going on for you internally at that point?</li><li>When did it stop being just about working out and become something deeper?</li></ul></div></div>
+          <div class="acc-block"><div class="b-label">Story Opportunities</div><div class="b-body">The pre-med-to-passion pivot — studying exercise science until she forgot to sleep, happily.</div></div>
+          <div class="acc-block"><div class="b-label">Clip Opportunities</div><div class="b-body">"I didn't come this far to only come this far," or the moment she first felt passion and purpose at the same time.</div></div>
+          <div class="acc-block"><div class="b-label">Producer Notes</div><div class="b-body">Handle trauma as redemptive testimony, not spectacle — chase the meaning and the lesson, not graphic detail.</div></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-cat">iii</span><span class="acc-title">The Breaking Point — Biggest Client Problems</span><span class="acc-icon"></span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner">
+          <div class="acc-block"><div class="b-label">Purpose</div><div class="b-body">Name what's actually going wrong beneath the surface — and introduce the nervous system as the missing variable.</div></div>
+          <div class="acc-block"><div class="b-label">Primary Question</div><div class="b-body"><span class="q">"When women come to you, what's actually going wrong underneath the surface — not the stuff they think is the problem?"</span></div></div>
+          <div class="acc-block"><div class="b-label">Follow-Up Questions</div><div class="b-body"><ul><li>Where does the nervous system come into this?</li><li>What's the cost when someone keeps forcing their body instead of partnering with it?</li></ul></div></div>
+          <div class="acc-block"><div class="b-label">Story Opportunities</div><div class="b-body">The client whose rest-as-survival belief drove a hormonal imbalance.</div></div>
+          <div class="acc-block"><div class="b-label">Clip Opportunities</div><div class="b-body">The "fragmentation problem" named plainly — a trainer, a therapist, a Bible study, and still stuck.</div></div>
+          <div class="acc-block"><div class="b-label">Producer Notes</div><div class="b-body">This is where the differentiator becomes tangible. Don't rush it — let the "separate projects" idea fully land.</div></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-cat">iv</span><span class="acc-title">The Turning Point — Coaching Philosophy</span><span class="acc-icon"></span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner">
+          <div class="acc-block"><div class="b-label">Purpose</div><div class="b-body">Deliver the core reframe — partnering with the body, and why inner work must precede protocols.</div></div>
+          <div class="acc-block"><div class="b-label">Primary Question</div><div class="b-body"><span class="q">"You talk about partnering with your body instead of fighting it. What do you actually mean by that?"</span></div></div>
+          <div class="acc-block"><div class="b-label">Follow-Up Questions</div><div class="b-body"><ul><li>Why does the inner work have to come before the protocols?</li><li>How does faith fit into all of this without it becoming preachy?</li></ul></div></div>
+          <div class="acc-block"><div class="b-label">Story Opportunities</div><div class="b-body">A moment that crystallized "inner work first, protocols second" for her.</div></div>
+          <div class="acc-block"><div class="b-label">Clip Opportunities</div><div class="b-body">"Your body is the vehicle, not the destination," or "knowing the truth vs. holding the truth."</div></div>
+          <div class="acc-block"><div class="b-label">Producer Notes</div><div class="b-body">The philosophical spine of the show. If she articulates the sequence cleanly, this clip anchors the whole content library.</div></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-cat">v</span><span class="acc-title">The Lessons Learned — Myths &amp; Mistakes</span><span class="acc-icon"></span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner">
+          <div class="acc-block"><div class="b-label">Purpose</div><div class="b-body">Undo the lies the audience has been told, and give her contrarian, share-worthy positions.</div></div>
+          <div class="acc-block"><div class="b-label">Primary Question</div><div class="b-body"><span class="q">"What are the biggest lies women have been told about transformation that you have to undo?"</span></div></div>
+          <div class="acc-block"><div class="b-label">Follow-Up Questions</div><div class="b-body"><ul><li>What's the mistake even good, disciplined women keep making?</li><li>What do most coaches get wrong about the nervous system?</li></ul></div></div>
+          <div class="acc-block"><div class="b-label">Story Opportunities</div><div class="b-body">Her own bodybuilding / eating-disorder era as lived proof that external change isn't real transformation.</div></div>
+          <div class="acc-block"><div class="b-label">Clip Opportunities</div><div class="b-body">A crisp myth-bust — "you can't outpray a dysregulated nervous system," or the all-or-nothing trap named.</div></div>
+          <div class="acc-block"><div class="b-label">Producer Notes</div><div class="b-body">Model recovery-safe language — no calorie spectacle, no before/after body-shaming. A hard brand guardrail.</div></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-cat">vi</span><span class="acc-title">The Framework — Practical Advice</span><span class="acc-icon"></span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner">
+          <div class="acc-block"><div class="b-label">Purpose</div><div class="b-body">Give the listener one usable first step — and answer the somatics-legitimacy question head-on.</div></div>
+          <div class="acc-block"><div class="b-label">Primary Question</div><div class="b-body"><span class="q">"For the woman listening who's exhausted and stuck right now — what's one thing she could actually start with?"</span></div></div>
+          <div class="acc-block"><div class="b-label">Follow-Up Questions</div><div class="b-body"><ul><li>What does "one right thing at a time" look like in real life?</li><li>Is somatic work even okay for a Christian — how do you answer that?</li></ul></div></div>
+          <div class="acc-block"><div class="b-label">Story Opportunities</div><div class="b-body">A simple, usable regulation practice she teaches early with clients.</div></div>
+          <div class="acc-block"><div class="b-label">Clip Opportunities</div><div class="b-body">A shareable, standalone tip — the "regulated morning," or permission to rest.</div></div>
+          <div class="acc-block"><div class="b-label">Producer Notes</div><div class="b-body">Push for the framework to crystallize on the fly. If she names the four pillars cleanly, flag it — that's her backbone IP.</div></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-cat">vii</span><span class="acc-title">The Success Stories — Client Transformation</span><span class="acc-icon"></span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner">
+          <div class="acc-block"><div class="b-label">Purpose</div><div class="b-body">Prove the method with a real, felt transformation that goes far beyond the physical.</div></div>
+          <div class="acc-block"><div class="b-label">Primary Question</div><div class="b-body"><span class="q">"Tell me about a transformation that still sticks with you — someone whose change went way beyond the physical."</span></div></div>
+          <div class="acc-block"><div class="b-label">Follow-Up Questions</div><div class="b-body"><ul><li>What did you have to address first before the body could change?</li><li>Where is she now, and what can she do that she couldn't before?</li></ul></div></div>
+          <div class="acc-block"><div class="b-label">Story Opportunities</div><div class="b-body">The 40-lb client who kept it off and rebuilt her identity — anxiety and depression to pursuing new challenges.</div></div>
+          <div class="acc-block"><div class="b-label">Clip Opportunities</div><div class="b-body">The before/after <em>identity</em> shift — not the number — how she moves through her life differently now.</div></div>
+          <div class="acc-block"><div class="b-label">Producer Notes</div><div class="b-body">Chase specifics: the before, the intervention, the after. Granular case studies are the confirmed market gap.</div></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-cat">viii</span><span class="acc-title">The Future Vision — Offer Positioning</span><span class="acc-icon"></span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner">
+          <div class="acc-block"><div class="b-label">Purpose</div><div class="b-body">Introduce Divine Design as evidence, not a pitch — arriving after the proof has already landed.</div></div>
+          <div class="acc-block"><div class="b-label">Primary Question</div><div class="b-body"><span class="q">"You've built this into something — tell me about Divine Design and who it's really for."</span></div></div>
+          <div class="acc-block"><div class="b-label">Follow-Up Questions</div><div class="b-body"><ul><li>What makes this different from the programs she's already tried?</li><li>What's the first cohort about, and who is it <em>not</em> for?</li></ul></div></div>
+          <div class="acc-block"><div class="b-label">Story Opportunities</div><div class="b-body">Why she built it — the calling and the gap she saw no one else filling.</div></div>
+          <div class="acc-block"><div class="b-label">Clip Opportunities</div><div class="b-body">The clean one-liner on integration — four things coordinated in one place instead of four separate people.</div></div>
+          <div class="acc-block"><div class="b-label">Producer Notes</div><div class="b-body">Keep it invitational and low-pressure. This audience buys on trust and self-recognition, never urgency.</div></div>
+        </div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head" aria-expanded="false">
+          <span class="acc-cat">ix</span><span class="acc-title">The Final Message — Closing Lesson</span><span class="acc-icon"></span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner">
+          <div class="acc-block"><div class="b-label">Purpose</div><div class="b-body">Land the one idea the whole conversation was building toward, with an emotional close.</div></div>
+          <div class="acc-block"><div class="b-label">Primary Question</div><div class="b-body"><span class="q">"If a woman takes just one thing from this whole conversation, what do you want it to be?"</span></div></div>
+          <div class="acc-block"><div class="b-label">Follow-Up Questions</div><div class="b-body"><ul><li>What would you say to the version of you back in that dark season?</li><li>What becomes possible when a woman stops fighting her body?</li></ul></div></div>
+          <div class="acc-block"><div class="b-label">Story Opportunities</div><div class="b-body">A forward-looking vision of freedom and identity.</div></div>
+          <div class="acc-block"><div class="b-label">Clip Opportunities</div><div class="b-body">The emotional landing line — the "you're not broken, you were just given fragments" beat.</div></div>
+          <div class="acc-block"><div class="b-label">Producer Notes</div><div class="b-body">This is the episode's signature clip. Give her room and silence to reach it — don't talk over the beat.</div></div>
+        </div></div>
+      </div>
+
+    </div>
+
+    <div class="statement reveal" style="margin-top:clamp(40px,6vw,60px);"><p><span class="mono-label" style="display:block;margin-bottom:16px;">CTA Placement</span>The offer lands naturally in Segment 8, after the success story has proven the method works. Suggested transition: <span class="accent">"So for the woman listening who's nodding along right now, thinking 'that's me' — where does she go from here? What have you built for her?"</span></p></div>
+    <p class="lead reveal"><strong style="color:var(--copper-light);font-weight:500;">Primary CTA:</strong> the Divine Design waitlist / founding-cohort application. <strong style="color:var(--copper-light);font-weight:500;">Secondary CTA:</strong> the quiz — <em>Is It Willpower or Your Nervous System?</em> — for the not-yet-ready. Close plainly: "If you're the woman we've been describing this whole episode, both are linked below."</p>
+  </div>
+</section>
+
+<!-- ============ 08 CLIP OPPORTUNITY TARGETS ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s8">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">08</span> Clip Opportunity Targets</div>
+    <h2 class="section-title reveal">The Moments<br>We Hunt</h2>
+    <p class="lead reveal">These are the categories our producers actively listen for during recording. Each one becomes a different kind of authority asset — and together they build the full picture of who Fate is.</p>
+
+    <div class="card-grid reveal">
+      <div class="card"><span class="card-index">01</span>
+        <div class="card-title">Emotional Moments</div>
+        <div class="card-body"><span class="tag">Lowest point · turning point · breakthrough · struggle</span>Her dark season, the passion-and-purpose pivot, the redemptive arc. <em>Why it matters:</em> emotion is what makes an audience trust a stranger — these clips build the human connection this audience buys on.</div></div>
+      <div class="card"><span class="card-index">02</span>
+        <div class="card-title">Controversial Opinions</div>
+        <div class="card-body"><span class="tag">Industry myths · contrarian views · strong beliefs</span>"You can't outpray a dysregulated nervous system." "Rest isn't lazy." <em>Why it matters:</em> a clear point of view is what makes her memorable and shareable — and stakes her category claim.</div></div>
+      <div class="card"><span class="card-index">03</span>
+        <div class="card-title">Teaching Moments</div>
+        <div class="card-body"><span class="tag">Frameworks · processes · step-by-step</span>Inner work → somatic → protocol. The four pillars. <em>Why it matters:</em> teaching clips prove expertise and turn passive viewers into people who want the full method.</div></div>
+      <div class="card"><span class="card-index">04</span>
+        <div class="card-title">Identity Moments</div>
+        <div class="card-body"><span class="tag">Philosophy · core beliefs · values</span>"Your body is the vehicle, not the destination." Knowing vs. holding the truth. <em>Why it matters:</em> identity clips attract the exact right client and gently repel the wrong fit.</div></div>
+      <div class="card"><span class="card-index">05</span>
+        <div class="card-title">Client Stories</div>
+        <div class="card-body"><span class="tag">Transformations · wins · results</span>The 40-lb, identity-rebuilding client; the rest-as-survival case. <em>Why it matters:</em> proof is the confirmed market gap — granular transformation stories are her fastest credibility builder.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 09 CONTENT EXPANSION MAP ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s9">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">09</span> Content Expansion Map</div>
+    <h2 class="section-title reveal">One Session,<br>One Ecosystem</h2>
+    <p class="lead reveal">A single recording is the raw material for an entire month of authority content across every channel. Here's how one episode multiplies.</p>
+
+    <div class="map-grid reveal">
+      <div class="map-cell"><div class="m-title">Reels</div><div class="m-body">8–12 vertical clips from the flagged emotional, myth-busting, and identity moments.</div></div>
+      <div class="map-cell"><div class="m-title">Shorts</div><div class="m-body">Cross-posted verticals tuned for YouTube Shorts discovery and search.</div></div>
+      <div class="map-cell"><div class="m-title">YouTube</div><div class="m-body">The full episode plus chaptered teaching segments as evergreen long-form.</div></div>
+      <div class="map-cell"><div class="m-title">Blog Articles</div><div class="m-body">SEO drafts bridging "somatic therapy for Christians" into fitness outcomes.</div></div>
+      <div class="map-cell"><div class="m-title">Emails</div><div class="m-body">A nurture sequence built from the episode's strongest reframes and stories.</div></div>
+      <div class="map-cell"><div class="m-title">LinkedIn</div><div class="m-body">Authority posts reframing plateau, rest, and the fragmentation problem.</div></div>
+      <div class="map-cell"><div class="m-title">Lead Magnets</div><div class="m-body">The quiz and the Fragmentation Fix guide, seeded directly from episode themes.</div></div>
+      <div class="map-cell"><div class="m-title">Landing Pages</div><div class="m-body">Waitlist and quiz pages carrying the episode's exact language.</div></div>
+      <div class="map-cell"><div class="m-title">Ad Creatives</div><div class="m-body">Hook-led clips repurposed as top-of-funnel paid creative.</div></div>
+      <div class="map-cell"><div class="m-title">Sales Assets</div><div class="m-body">Transformation stories and proof clips for the cohort launch.</div></div>
+    </div>
+
+    <div class="mono-label reveal" style="margin-top:clamp(40px,6vw,60px);">Primary Content Extraction Priorities</div>
+    <ul class="num-list reveal">
+      <li><b>Emotional Story Clips</b> — the trust engine. Highest priority; they earn the audience's belief.</li>
+      <li><b>Identity Clips</b> — attract the right client, filter the wrong one.</li>
+      <li><b>Teaching Clips</b> — prove expertise and create demand for the method.</li>
+      <li><b>Myth-Busting Clips</b> — the shareable, category-claiming moments.</li>
+      <li><b>CTA Clips</b> — convert warmed audience into quiz and waitlist opt-ins.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 10 AUTHORITY FLYWHEEL ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s10">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">10</span> The Authority Flywheel</div>
+    <h2 class="section-title reveal">The Engine<br>That Compounds</h2>
+    <p class="lead reveal">Content isn't the goal. The goal is a self-reinforcing system where every episode produces the inputs for the next stage of growth.</p>
+
+    <div class="flywheel reveal">
+      <div class="fw-ring">
+        <div class="fw-center"><div class="fw-c-label">The DGM</div><div class="fw-c-word">Authority<br>Engine</div></div>
+        <div class="fw-node n1"><div class="fw-n">i</div><div class="fw-t">Podcast Recording</div></div>
+        <div class="fw-node n2"><div class="fw-n">ii</div><div class="fw-t">Content Ecosystem</div></div>
+        <div class="fw-node n3"><div class="fw-n">iii</div><div class="fw-t">Audience Growth</div></div>
+        <div class="fw-node n4"><div class="fw-n">iv</div><div class="fw-t">Trust Building</div></div>
+        <div class="fw-node n5"><div class="fw-n">v</div><div class="fw-t">Lead Generation</div></div>
+        <div class="fw-node n6"><div class="fw-n">vi</div><div class="fw-t">Client Success Stories</div></div>
+        <div class="fw-node n7"><div class="fw-n">vii</div><div class="fw-t">New Podcast Content</div></div>
+        <div class="fw-node n8"><div class="fw-n">viii</div><div class="fw-t">Authority Compounds</div></div>
+      </div>
+
+      <div class="fw-list">
+        <div class="fw-li"><span class="fw-li-n">i</span><span class="fw-li-t">Podcast Recording</span></div>
+        <div class="fw-li"><span class="fw-li-n">ii</span><span class="fw-li-t">Content Ecosystem</span></div>
+        <div class="fw-li"><span class="fw-li-n">iii</span><span class="fw-li-t">Audience Growth</span></div>
+        <div class="fw-li"><span class="fw-li-n">iv</span><span class="fw-li-t">Trust Building</span></div>
+        <div class="fw-li"><span class="fw-li-n">v</span><span class="fw-li-t">Lead Generation</span></div>
+        <div class="fw-li"><span class="fw-li-n">vi</span><span class="fw-li-t">Client Success Stories</span></div>
+        <div class="fw-li"><span class="fw-li-n">vii</span><span class="fw-li-t">New Podcast Content</span></div>
+        <div class="fw-li"><span class="fw-li-n">viii</span><span class="fw-li-t">Authority Compounds</span></div>
+      </div>
+
+      <p class="fw-note"><span class="accent">The goal is not simply to create content.</span> It is to build a self-reinforcing authority engine where every episode creates the inputs for the next stage of growth — recordings become content, content earns trust, trust generates leads, leads become success stories, and success stories become the next episode.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 GROWTH ROADMAP ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s11">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">11</span> Authority Growth Roadmap</div>
+    <h2 class="section-title reveal">Episode One<br>To Episode Six</h2>
+    <p class="lead reveal">A deliberate sequence: establish the messenger, name the problem, teach the method, then prove it — right ahead of the launch.</p>
+
+    <div class="roadmap reveal">
+      <div class="rm-ep"><div class="rm-num">01</div><div>
+        <div class="rm-title">"I Didn't Come This Far To Only Come This Far" — My Story</div>
+        <div class="rm-meta">
+          <div class="rm-row"><b>Strategic Purpose</b> Earn trust through lived experience from the very first episode.</div>
+          <div class="rm-row"><b>Core Theme</b> Origin, identity, and the fragmentation she set out to solve.</div>
+          <div class="rm-row"><b>Authority Objective</b> Install the worldview every future episode compounds from.</div>
+        </div></div></div>
+      <div class="rm-ep"><div class="rm-num">02</div><div>
+        <div class="rm-title">The Fragmentation Problem: Why Nothing's Been Working</div>
+        <div class="rm-meta">
+          <div class="rm-row"><b>Strategic Purpose</b> Name the core pain and stake the category claim early.</div>
+          <div class="rm-row"><b>Core Theme</b> A trainer, a therapist, a Bible study — and still stuck.</div>
+          <div class="rm-row"><b>Authority Objective</b> Own the "already done the work, still stuck" avatar.</div>
+        </div></div></div>
+      <div class="rm-ep"><div class="rm-num">03</div><div>
+        <div class="rm-title">Partnering With Your Body Instead Of Fighting It</div>
+        <div class="rm-meta">
+          <div class="rm-row"><b>Strategic Purpose</b> Introduce her signature philosophy and owned language.</div>
+          <div class="rm-row"><b>Core Theme</b> Working with the body, not forcing it.</div>
+          <div class="rm-row"><b>Authority Objective</b> Plant the vocabulary the market will associate with her.</div>
+        </div></div></div>
+      <div class="rm-ep"><div class="rm-num">04</div><div>
+        <div class="rm-title">The Nervous System Nobody's Talking About In Fitness</div>
+        <div class="rm-meta">
+          <div class="rm-row"><b>Strategic Purpose</b> Demonstrate differentiated expertise; capture search demand.</div>
+          <div class="rm-row"><b>Core Theme</b> Regulation before protocols — the physical bridge no one builds.</div>
+          <div class="rm-row"><b>Authority Objective</b> Separate her from every mainstream fitness voice.</div>
+        </div></div></div>
+      <div class="rm-ep"><div class="rm-num">05</div><div>
+        <div class="rm-title">Knowing vs. Holding: Faith, Identity &amp; The Body</div>
+        <div class="rm-meta">
+          <div class="rm-row"><b>Strategic Purpose</b> Integrate the faith pillar explicitly; filter for ideal fit.</div>
+          <div class="rm-row"><b>Core Theme</b> The gap between intellectual belief and felt identity.</div>
+          <div class="rm-row"><b>Authority Objective</b> Claim the faith-and-embodiment intersection.</div>
+        </div></div></div>
+      <div class="rm-ep"><div class="rm-num">06</div><div>
+        <div class="rm-title">The Client Who Couldn't Rest — What We Had To Heal First</div>
+        <div class="rm-meta">
+          <div class="rm-row"><b>Strategic Purpose</b> Make the method concrete and proof-driven ahead of the launch.</div>
+          <div class="rm-row"><b>Core Theme</b> Rest-as-survival, and why inner work unlocks the body.</div>
+          <div class="rm-row"><b>Authority Objective</b> Deliver the granular case study the market is missing.</div>
+        </div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 PRODUCTION DAY PREP ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s12">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">12</span> Production Day Preparation</div>
+    <h2 class="section-title reveal">Walk In<br>Ready</h2>
+    <p class="lead reveal">You don't need to perform. You need to be present. This conversation is designed to sound like you at your most honest — and we handle everything else.</p>
+
+    <div class="card-grid reveal">
+      <div class="card"><span class="card-index">01</span>
+        <div class="card-title">Mindset</div>
+        <div class="card-body">Come as the guide who's walked the road, not the expert on a pedestal. Your story is the asset. There are no wrong answers — the truest ones are always the best ones.</div></div>
+      <div class="card"><span class="card-index">02</span>
+        <div class="card-title">Wardrobe</div>
+        <div class="card-body">Solid, warm tones that read well on camera — avoid busy patterns and bright white. Wear what makes you feel grounded and like yourself. Comfort reads as confidence.</div></div>
+      <div class="card"><span class="card-index">03</span>
+        <div class="card-title">Expectations</div>
+        <div class="card-body">Conversational, not scripted. We'll follow the framework loosely and chase the moments that matter. Pauses are welcome — silence gives the best lines room to arrive.</div></div>
+      <div class="card"><span class="card-index">04</span>
+        <div class="card-title">Recording Environment</div>
+        <div class="card-body">A quiet, softly lit space with minimal echo. We'll guide framing and audio on the day. All you bring is your presence and your stories.</div></div>
+      <div class="card"><span class="card-index">05</span>
+        <div class="card-title">Best Practices</div>
+        <div class="card-body">Speak to one woman, not an audience. Use her language. When a story surfaces, follow it. If you fumble a line, just take a breath and start it again — we'll handle the edit.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13 INCLUDED DELIVERABLES ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s13">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">13</span> Included Deliverables</div>
+    <h2 class="section-title reveal">What You<br>Receive</h2>
+    <p class="lead reveal">One recording session, engineered into a complete authority package across three tiers.</p>
+
+    <div class="card-grid reveal">
+      <div class="card"><span class="card-index">i</span>
+        <div class="card-title">Podcast Deliverables</div>
+        <div class="card-body">
+          <span class="tag">The Recording Asset</span>
+          Fully edited long-form episode · chaptered YouTube upload · polished audio master · episode title, description &amp; show-notes copy · branded intro/outro treatment.</div></div>
+      <div class="card"><span class="card-index">ii</span>
+        <div class="card-title">Content Deliverables</div>
+        <div class="card-body">
+          <span class="tag">The Multiplication</span>
+          8–12 vertical reels/shorts · SEO blog draft · email nurture sequence · LinkedIn authority posts · captioned clips · repurposable ad creative.</div></div>
+      <div class="card"><span class="card-index">iii</span>
+        <div class="card-title">Strategic Deliverables</div>
+        <div class="card-body">
+          <span class="tag">The Blueprint</span>
+          This authority blueprint · conversation framework · clip-target strategy · content expansion map · 6-episode roadmap · CTA &amp; lead-magnet direction.</div></div>
+    </div>
+    <div class="deliv-note reveal">Deliverable scope is illustrative and confirmed per engagement.</div>
+  </div>
+</section>
+
+<!-- ============ 14 NEXT STEPS ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<section id="s14">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="sec-num">14</span> Next Steps</div>
+    <h2 class="section-title reveal">Three Moves<br>To Begin</h2>
+    <p class="lead reveal">Simple, direct, strategic. Everything above becomes real the moment we record.</p>
+
+    <div class="steps reveal">
+      <div class="step"><span class="s-num">01</span>
+        <div class="s-title">Approve The Direction</div>
+        <div class="s-body">Confirm the Episode One angle and your preferred title. This locks the foundation the whole ecosystem builds on.</div></div>
+      <div class="step"><span class="s-num">02</span>
+        <div class="s-title">Book The Recording</div>
+        <div class="s-body">Lock your session date. Come with your stories loose in mind — we'll handle the structure, the questions, and the flow.</div></div>
+      <div class="step"><span class="s-num">03</span>
+        <div class="s-title">Prep The Assets</div>
+        <div class="s-body">We finalize the quiz and waitlist so the CTA path is live the moment the episode publishes — turning attention into opt-ins from day one.</div></div>
+    </div>
+
+    <div class="statement reveal" style="margin-top:clamp(44px,6vw,64px);"><p>One session. A month of content. The first turn of an engine that <span class="accent">compounds every time you record.</span></p></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<div class="divider-block"><div class="wrap"><div class="divider"></div></div></div>
+<footer>
+  <div class="wrap">
+    <div class="footer-lockup">
+      <div class="lockup"><div class="lockup-mark"><span></span><span></span><span></span><span></span></div>
+        <div class="lockup-name">Daily Grind Media</div></div>
+    </div>
+    <div class="footer-mark">Stay On That Daily Grind</div>
+    <div class="footer-tag">Where authority is built, one episode at a time.</div>
+    <div class="footer-meta">Fate Villas &middot; Divine Design &middot; Podcast Authority Blueprint &middot; 2026</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Reveal on scroll */
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});}
+  else{
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  }
+
+  /* Accordion single-toggle */
+  document.querySelectorAll('.acc-head').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.acc-item');
+      var open=item.classList.contains('open');
+      item.classList.toggle('open',!open);
+      btn.setAttribute('aria-expanded',String(!open));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

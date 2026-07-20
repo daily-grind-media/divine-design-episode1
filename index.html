@@ -247,6 +247,13 @@ header.hero::after{content:"";position:absolute;bottom:-30%;right:-20%;width:70v
 /* Flywheel */
 .flywheel{margin-top:clamp(32px,5vw,56px);display:flex;flex-direction:column;align-items:center;gap:0;}
 .fw-ring{position:relative;width:min(560px,86vw);aspect-ratio:1;margin:0 auto;}
+/* orbital flow SVG (dashed track + directional arrowheads) */
+.fw-orbit{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0;}
+.fw-orbit .fw-track{fill:none;stroke:var(--copper-dark);stroke-width:1.2;stroke-dasharray:5 9;
+  opacity:0.5;transform-origin:250px 250px;animation:fwspin 46s linear infinite;}
+.fw-orbit .fw-arrow{fill:var(--copper);opacity:0.9;}
+.fw-node,.fw-center{z-index:1;}
+@keyframes fwspin{to{transform:rotate(360deg);}}
 .fw-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38%;height:38%;
   border-radius:50%;border:1px solid var(--copper-dark);
   background:radial-gradient(circle,rgba(187,114,90,0.12),rgba(8,8,8,0.4));
@@ -343,6 +350,7 @@ footer{padding:clamp(60px,9vw,110px) 0 clamp(48px,6vw,72px);text-align:center;po
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1!important;transform:none!important;transition:none!important;}
   .lockup-mark span{animation:none!important;}
+  .fw-orbit .fw-track{animation:none!important;}
   html{scroll-behavior:auto;}
 }
 
@@ -359,6 +367,8 @@ footer{padding:clamp(60px,9vw,110px) 0 clamp(48px,6vw,72px);text-align:center;po
   p,.lead,.card-body,.prose p{color:#333;}
   .divider{opacity:1;}
   .lockup-mark span{animation:none!important;}
+  .fw-orbit .fw-track{animation:none!important;stroke:#8A4F3B;}
+  .fw-orbit .fw-arrow{fill:#8A4F3B;}
 }
 </style>
 </head>
@@ -839,6 +849,17 @@ footer{padding:clamp(60px,9vw,110px) 0 clamp(48px,6vw,72px);text-align:center;po
 
     <div class="flywheel reveal">
       <div class="fw-ring">
+        <svg class="fw-orbit" viewBox="0 0 500 500" aria-hidden="true">
+          <circle class="fw-track" cx="250" cy="250" r="220"/>
+          <polygon class="fw-arrow" points="346.2,51.7 331.3,35.0 323.9,53.0"/>
+          <polygon class="fw-arrow" points="458.2,177.8 459.5,155.5 441.5,162.9"/>
+          <polygon class="fw-arrow" points="448.3,346.2 465.0,331.3 447.0,323.9"/>
+          <polygon class="fw-arrow" points="322.2,458.2 344.5,459.5 337.1,441.5"/>
+          <polygon class="fw-arrow" points="153.8,448.3 168.7,465.0 176.1,447.0"/>
+          <polygon class="fw-arrow" points="41.8,322.2 40.5,344.5 58.5,337.1"/>
+          <polygon class="fw-arrow" points="51.7,153.8 35.0,168.7 53.0,176.1"/>
+          <polygon class="fw-arrow" points="177.8,41.8 155.5,40.5 162.9,58.5"/>
+        </svg>
         <div class="fw-center"><div class="fw-c-label">The DGM</div><div class="fw-c-word">Authority<br>Engine</div></div>
         <div class="fw-node n1"><div class="fw-n">i</div><div class="fw-t">Podcast Recording</div></div>
         <div class="fw-node n2"><div class="fw-n">ii</div><div class="fw-t">Content Ecosystem</div></div>
